@@ -34,9 +34,9 @@ namespace AssetTrackingSystem
             try
             {
                 //This is my connection string i have assigned the database file address path
-                string MyConnection2 = "datasource=lochnagar.abertay.ac.uk;port=22;username=sql2204315;password=45Hysx3CEDI4";
+                string MyConnection2 = "datasource=lochnagar.abertay.ac.uk;database=sql2204315;username=sql2204315;password=45Hysx3CEDI4";
                 //This is my insert query in which i am taking input from the user through windows forms
-                string Query = "insert into student.studentinfo(idStudentInfo,Name,Father_Name,Age,Semester) values('" + this.IdTextBox.Text + "','" + this.NameTextBox.Text + "','" + this.FnameTextBox.Text + "','" + this.AgeTextBox.Text + "','" + this.SemesterTextBox.Text + "');";
+                string Query = "insert into hardware(SystemName,Model,Manufacturer,Type,IPaddress) values('" + this.SystemTextBox.Text + "','" + this.ModelTextBox.Text + "','" + this.ManuTextBox.Text + "','" + this.TypeTextBox.Text + "','" + this.IPadTextBox.Text + "');";
                 //This is  MySqlConnection here i have created the object and pass my connection string.
                 MySqlConnection MyConn2 = new MySqlConnection(MyConnection2);
                 //This is command class which will handle the query and connection object.
@@ -49,6 +49,30 @@ namespace AssetTrackingSystem
                 {
                 }
                 MyConn2.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string MyConnection2 = "datasource=lochnagar.abertay.ac.uk;database=sql2204315;username=sql2204315;password=45Hysx3CEDI4";
+                //Display query
+                string Query = "select * from hardware;";
+                MySqlConnection MyConn2 = new MySqlConnection(MyConnection2);
+                MySqlCommand MyCommand2 = new MySqlCommand(Query, MyConn2);
+                //  MyConn2.Open();
+                //For offline connection we weill use  MySqlDataAdapter class.
+                MySqlDataAdapter MyAdapter = new MySqlDataAdapter();
+                MyAdapter.SelectCommand = MyCommand2;
+                DataTable dTable = new DataTable();
+                MyAdapter.Fill(dTable);
+                dataGridView_hardware.DataSource = dTable; // here i have assign dTable object to the dataGridView1 object to display data.
+                                                   // MyConn2.Close();
             }
             catch (Exception ex)
             {
