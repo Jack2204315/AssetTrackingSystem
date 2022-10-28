@@ -39,9 +39,11 @@ namespace AssetTrackingSystem
             this.TypeTextBox = new System.Windows.Forms.TextBox();
             this.ManuTextBox = new System.Windows.Forms.TextBox();
             this.ModelTextBox = new System.Windows.Forms.TextBox();
-            this.btn_insert = new System.Windows.Forms.Button();
             this.dataGridView_hardware = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
+            this.insertbtn = new System.Windows.Forms.Button();
+            this.ExtraDataTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_hardware)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,20 +129,10 @@ namespace AssetTrackingSystem
             this.ModelTextBox.Size = new System.Drawing.Size(247, 20);
             this.ModelTextBox.TabIndex = 9;
             // 
-            // btn_insert
-            // 
-            this.btn_insert.Location = new System.Drawing.Point(85, 244);
-            this.btn_insert.Name = "btn_insert";
-            this.btn_insert.Size = new System.Drawing.Size(246, 28);
-            this.btn_insert.TabIndex = 10;
-            this.btn_insert.Text = "Insert data";
-            this.btn_insert.UseVisualStyleBackColor = true;
-            this.btn_insert.Click += new System.EventHandler(this.button1_Click);
-            // 
             // dataGridView_hardware
             // 
             this.dataGridView_hardware.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_hardware.Location = new System.Drawing.Point(362, 60);
+            this.dataGridView_hardware.Location = new System.Drawing.Point(362, 47);
             this.dataGridView_hardware.Name = "dataGridView_hardware";
             this.dataGridView_hardware.Size = new System.Drawing.Size(426, 335);
             this.dataGridView_hardware.TabIndex = 11;
@@ -155,15 +147,45 @@ namespace AssetTrackingSystem
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // insertbtn
+            // 
+            this.insertbtn.Location = new System.Drawing.Point(85, 302);
+            this.insertbtn.Name = "insertbtn";
+            this.insertbtn.Size = new System.Drawing.Size(246, 28);
+            this.insertbtn.TabIndex = 13;
+            this.insertbtn.Text = "Insert data";
+            this.insertbtn.UseVisualStyleBackColor = true;
+            this.insertbtn.Click += new System.EventHandler(this.insertbtn_Click);
+            // 
+            // ExtraDataTextBox
+            // 
+            this.ExtraDataTextBox.Location = new System.Drawing.Point(85, 236);
+            this.ExtraDataTextBox.Multiline = true;
+            this.ExtraDataTextBox.Name = "ExtraDataTextBox";
+            this.ExtraDataTextBox.Size = new System.Drawing.Size(247, 60);
+            this.ExtraDataTextBox.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 239);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Extra Data";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ExtraDataTextBox);
+            this.Controls.Add(this.insertbtn);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView_hardware);
-            this.Controls.Add(this.btn_insert);
             this.Controls.Add(this.ModelTextBox);
             this.Controls.Add(this.ManuTextBox);
             this.Controls.Add(this.TypeTextBox);
@@ -194,9 +216,11 @@ namespace AssetTrackingSystem
         private System.Windows.Forms.TextBox TypeTextBox;
         private System.Windows.Forms.TextBox ManuTextBox;
         private System.Windows.Forms.TextBox ModelTextBox;
-        private System.Windows.Forms.Button btn_insert;
         private System.Windows.Forms.DataGridView dataGridView_hardware;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button insertbtn;
+        private System.Windows.Forms.TextBox ExtraDataTextBox;
+        private System.Windows.Forms.Label label1;
     }
 }
 
