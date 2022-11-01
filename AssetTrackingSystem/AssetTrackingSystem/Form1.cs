@@ -33,6 +33,7 @@ namespace AssetTrackingSystem
         {
             try
             {
+                //This is the reference to help establish a connection to MySQL database: https://www.c-sharpcorner.com/UploadFile/9582c9/insert-update-delete-display-data-in-mysql-using-C-Sharp/
                 //This is my connection string to mySQL database.
                 string Connection = "datasource=lochnagar.abertay.ac.uk;database=sql2204315;username=sql2204315;password=45Hysx3CEDI4";
                 //inserting data into coresponding data fields within mySQL database.
@@ -42,7 +43,7 @@ namespace AssetTrackingSystem
                 MySqlDataReader Reader;
                 Conn.Open();
                 Reader = Command.ExecuteReader();
-                MessageBox.Show("Save Data");
+                MessageBox.Show("Asset data has been added");
                 while (Reader.Read())
                 {
                 }
@@ -59,6 +60,7 @@ namespace AssetTrackingSystem
         {
             try
             {
+                //This is the reference to help view data through dataGridView_hardware: https://www.w3schools.com/sql/default.asp
                 //This is my connection string to mySQL database.
                 string Connection = "datasource=lochnagar.abertay.ac.uk;database=sql2204315;username=sql2204315;password=45Hysx3CEDI4";
                 //populate dataGridView_hardware
