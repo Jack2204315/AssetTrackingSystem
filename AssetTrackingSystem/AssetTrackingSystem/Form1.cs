@@ -113,7 +113,16 @@ namespace AssetTrackingSystem
 
         private void dataGridView_hardware_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow IndexRow = this.dataGridView_hardware.Rows[e.RowIndex];
+                SystemTextBox.Text = IndexRow.Cells[1].Value.ToString();
+                ModelTextBox.Text = IndexRow.Cells[2].Value.ToString();
+                ManuTextBox.Text = IndexRow.Cells[3].Value.ToString();
+                TypeTextBox.Text = IndexRow.Cells[4].Value.ToString();
+                IPadTextBox.Text = IndexRow.Cells[5].Value.ToString();
+                ExtraDataTextBox.Text = IndexRow.Cells[6].Value.ToString();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
