@@ -1,4 +1,6 @@
 ﻿using MySql.Data.MySqlClient;  // for MySQL
+using System.Management;
+using System.Management.Instrumentation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -116,12 +118,12 @@ namespace AssetTrackingSystem
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow IndexRow = this.dataGridView_hardware.Rows[e.RowIndex];
-                SystemTextBox.Text = IndexRow.Cells[1].Value.ToString();
-                ModelTextBox.Text = IndexRow.Cells[2].Value.ToString();
-                ManuTextBox.Text = IndexRow.Cells[3].Value.ToString();
-                TypeTextBox.Text = IndexRow.Cells[4].Value.ToString();
-                IPadTextBox.Text = IndexRow.Cells[5].Value.ToString();
-                ExtraDataTextBox.Text = IndexRow.Cells[6].Value.ToString();
+                SystemTextBox.Text = IndexRow.Cells[0].Value.ToString();
+                ModelTextBox.Text = IndexRow.Cells[1].Value.ToString();
+                ManuTextBox.Text = IndexRow.Cells[2].Value.ToString();
+                TypeTextBox.Text = IndexRow.Cells[3].Value.ToString();
+                IPadTextBox.Text = IndexRow.Cells[4].Value.ToString();
+                ExtraDataTextBox.Text = IndexRow.Cells[5].Value.ToString();
             }
         }
 
@@ -146,6 +148,16 @@ namespace AssetTrackingSystem
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void deletebtn_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void retrievebtn_Click(object sender, EventArgs e)
+        {
+            IPadTextBox.Text = HardwareInfo.GetProcessorId();
         }
     }
 }

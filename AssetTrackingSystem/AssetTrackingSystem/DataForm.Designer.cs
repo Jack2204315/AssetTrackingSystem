@@ -46,6 +46,7 @@ namespace AssetTrackingSystem
             this.label1 = new System.Windows.Forms.Label();
             this.editbtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.retrievebtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_hardware)).BeginInit();
             this.SuspendLayout();
             // 
@@ -198,12 +199,23 @@ namespace AssetTrackingSystem
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // retrievebtn
+            // 
+            this.retrievebtn.Location = new System.Drawing.Point(85, 59);
+            this.retrievebtn.Name = "retrievebtn";
+            this.retrievebtn.Size = new System.Drawing.Size(246, 28);
+            this.retrievebtn.TabIndex = 18;
+            this.retrievebtn.Text = "Retrieve hardware data";
+            this.retrievebtn.UseVisualStyleBackColor = true;
+            this.retrievebtn.Click += new System.EventHandler(this.retrievebtn_Click);
+            // 
             // deletebtn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.retrievebtn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.editbtn);
             this.Controls.Add(this.label1);
@@ -223,6 +235,7 @@ namespace AssetTrackingSystem
             this.Controls.Add(this.syname);
             this.Name = "deletebtn";
             this.Text = "Asset Tracking System";
+            this.Load += new System.EventHandler(this.deletebtn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_hardware)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -248,6 +261,7 @@ namespace AssetTrackingSystem
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button editbtn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button retrievebtn;
     }
 }
 
