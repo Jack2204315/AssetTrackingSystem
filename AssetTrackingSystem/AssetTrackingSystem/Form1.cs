@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace AssetTrackingSystem
 {
-    public partial class Form1 : Form
+    public partial class deletebtn : Form
     {
-        public Form1()
+        public deletebtn()
         {
             InitializeComponent();
         }
@@ -83,6 +83,60 @@ namespace AssetTrackingSystem
         private void label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void editbtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //This is the reference to help establish a connection to MySQL database: https://www.c-sharpcorner.com/UploadFile/9582c9/insert-update-delete-display-data-in-mysql-using-C-Sharp/
+                //This is my connection string to mySQL database.
+                string Connection = "datasource=lochnagar.abertay.ac.uk;database=sql2204315;username=sql2204315;password=45Hysx3CEDI4";
+                //inserting data into coresponding data fields within mySQL database.
+                string Query = "update hardware set SystemName='" + this.SystemTextBox.Text + "',Model='" + this.ModelTextBox.Text + "',Manufacturer='" + this.ManuTextBox.Text + "',Type='" + this.TypeTextBox.Text + "',IPaddress='" + this.IPadTextBox.Text + "',ExtraData='" + this.ExtraDataTextBox.Text + "';";
+                MySqlConnection Conn = new MySqlConnection(Connection);;
+                MySqlCommand Command = new MySqlCommand(Query, Conn);
+                MySqlDataReader Reader;
+                Conn.Open();
+                Reader = Command.ExecuteReader();
+                MessageBox.Show("Data Updated");
+                while (Reader.Read())
+                {
+                }
+                Conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dataGridView_hardware_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Connection = "datasource=lochnagar.abertay.ac.uk;database=sql2204315;username=sql2204315;password=45Hysx3CEDI4";
+                string Query = "delete from hardware where SystemName='" + this.SystemTextBox.Text + "';";
+                MySqlConnection Conn = new MySqlConnection(Connection); ;
+                MySqlCommand Command = new MySqlCommand(Query, Conn);
+                MySqlDataReader Reader;
+                Conn.Open();
+                Reader = Command.ExecuteReader();
+                MessageBox.Show("Data Deleted");
+                while (Reader.Read())
+                {
+                }
+                Conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

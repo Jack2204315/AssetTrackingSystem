@@ -1,7 +1,7 @@
 ﻿
 namespace AssetTrackingSystem
 {
-    partial class Form1
+    partial class deletebtn
     {
         /// <summary>
         /// Required designer variable.
@@ -44,6 +44,8 @@ namespace AssetTrackingSystem
             this.insertbtn = new System.Windows.Forms.Button();
             this.ExtraDataTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.editbtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_hardware)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,14 +138,15 @@ namespace AssetTrackingSystem
             this.dataGridView_hardware.Name = "dataGridView_hardware";
             this.dataGridView_hardware.Size = new System.Drawing.Size(426, 335);
             this.dataGridView_hardware.TabIndex = 11;
+            this.dataGridView_hardware.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_hardware_CellClick_1);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(449, 401);
+            this.button2.Location = new System.Drawing.Point(590, 388);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(246, 28);
+            this.button2.Size = new System.Drawing.Size(198, 28);
             this.button2.TabIndex = 12;
-            this.button2.Text = "Retrieve data";
+            this.button2.Text = "View data";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -175,12 +178,34 @@ namespace AssetTrackingSystem
             this.label1.Text = "Extra Data";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // Form1
+            // editbtn
+            // 
+            this.editbtn.Location = new System.Drawing.Point(362, 388);
+            this.editbtn.Name = "editbtn";
+            this.editbtn.Size = new System.Drawing.Size(198, 28);
+            this.editbtn.TabIndex = 16;
+            this.editbtn.Text = "Edit data";
+            this.editbtn.UseVisualStyleBackColor = true;
+            this.editbtn.Click += new System.EventHandler(this.editbtn_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(85, 336);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(246, 28);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Delete data";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // deletebtn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.editbtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ExtraDataTextBox);
             this.Controls.Add(this.insertbtn);
@@ -196,7 +221,7 @@ namespace AssetTrackingSystem
             this.Controls.Add(this.type);
             this.Controls.Add(this.ip);
             this.Controls.Add(this.syname);
-            this.Name = "Form1";
+            this.Name = "deletebtn";
             this.Text = "Asset Tracking System";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_hardware)).EndInit();
             this.ResumeLayout(false);
@@ -221,6 +246,8 @@ namespace AssetTrackingSystem
         private System.Windows.Forms.Button insertbtn;
         private System.Windows.Forms.TextBox ExtraDataTextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button editbtn;
+        private System.Windows.Forms.Button button1;
     }
 }
 
