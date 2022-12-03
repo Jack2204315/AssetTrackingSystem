@@ -16,7 +16,8 @@ namespace AssetTrackingSystem
         {
             InitializeComponent();
         }
-
+        //https://www.youtube.com/watch?v=NBOaMrigrRw
+        //link above was video used for button form direction.
         private void button1_Click(object sender, EventArgs e)
         {
             deletebtn df = new deletebtn();

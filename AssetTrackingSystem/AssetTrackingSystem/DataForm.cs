@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Sockets;
 
 
 namespace AssetTrackingSystem
@@ -45,7 +47,7 @@ namespace AssetTrackingSystem
                 MySqlDataReader Reader;
                 Conn.Open();
                 Reader = Command.ExecuteReader();
-                MessageBox.Show("Asset data has been added");
+                MessageBox.Show("Hardware data has been added");
                 while (Reader.Read())
                 {
                 }
@@ -163,6 +165,24 @@ namespace AssetTrackingSystem
 
             string q1 = Environment.MachineName;
             SystemTextBox.Text = q1;
+
+            //https://www.youtube.com/watch?v=izpntJlcs8o
+            //link above was used for ip fetch code.
+            IPAddress[] ip = Dns.GetHostAddresses(Dns.GetHostName());
+            foreach (IPAddress address in ip)
+            {
+                if (address.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    IPadTextBox.Text = address.ToString();
+                }
+            }
+        }
+
+        private void backbtn_Click(object sender, EventArgs e)
+        {
+            Direction df = new Direction();
+            df.Show();
+            Visible = false;
         }
     }
 }

@@ -47,6 +47,7 @@ namespace AssetTrackingSystem
             this.editbtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.retrievebtn = new System.Windows.Forms.Button();
+            this.backbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_hardware)).BeginInit();
             this.SuspendLayout();
             // 
@@ -201,11 +202,6 @@ namespace AssetTrackingSystem
             // 
             // retrievebtn
             // 
-            this.retrievebtn.Location = new System.Drawing.Point(85, 59);
-            this.retrievebtn.Name = "retrievebtn";
-            this.retrievebtn.Size = new System.Drawing.Size(246, 28);
-            this.retrievebtn.TabIndex = 18;
-            this.retrievebtn.Text = "Retrieve hardware data";
             this.retrievebtn.Location = new System.Drawing.Point(85, 72);
             this.retrievebtn.Name = "retrievebtn";
             this.retrievebtn.Size = new System.Drawing.Size(246, 28);
@@ -214,12 +210,23 @@ namespace AssetTrackingSystem
             this.retrievebtn.UseVisualStyleBackColor = true;
             this.retrievebtn.Click += new System.EventHandler(this.retrievebtn_Click);
             // 
+            // backbtn
+            // 
+            this.backbtn.Location = new System.Drawing.Point(10, 12);
+            this.backbtn.Name = "backbtn";
+            this.backbtn.Size = new System.Drawing.Size(67, 23);
+            this.backbtn.TabIndex = 19;
+            this.backbtn.Text = "Go back";
+            this.backbtn.UseVisualStyleBackColor = true;
+            this.backbtn.Click += new System.EventHandler(this.backbtn_Click);
+            // 
             // deletebtn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.backbtn);
             this.Controls.Add(this.retrievebtn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.editbtn);
@@ -267,6 +274,7 @@ namespace AssetTrackingSystem
         private System.Windows.Forms.Button editbtn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button retrievebtn;
+        private System.Windows.Forms.Button backbtn;
     }
 }
 
