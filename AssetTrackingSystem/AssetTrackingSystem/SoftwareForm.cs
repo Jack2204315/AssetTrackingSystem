@@ -140,5 +140,12 @@ namespace AssetTrackingSystem
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            versionbox.Text = SoftwareInfo.GetVersion();
+            manubox.Text = SoftwareInfo.GetManufacturer();
+            SystemBox.Text = SoftwareInfo.GetOSName();
+        }
     }
 }

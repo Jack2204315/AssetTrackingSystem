@@ -126,6 +126,7 @@
     <Compile Include="HardwareInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SoftwareInfo.cs" />
     <Compile Include="SoftwareForm.cs">
       <SubType>Form</SubType>
     </Compile>
