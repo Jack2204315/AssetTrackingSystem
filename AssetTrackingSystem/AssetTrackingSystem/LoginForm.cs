@@ -56,7 +56,7 @@ namespace AssetTrackingSystem
 
             if (BCrypt.Net.BCrypt.Verify(PassTextBox.Text, dataReader.GetString(0)))
             {
-                deletebtn dataform = new deletebtn();
+                Direction dataform = new Direction();
                 dataform.Show();
                 this.Hide();
             }

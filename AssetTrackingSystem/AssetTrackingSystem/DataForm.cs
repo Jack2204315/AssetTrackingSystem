@@ -157,7 +157,12 @@ namespace AssetTrackingSystem
 
         private void retrievebtn_Click(object sender, EventArgs e)
         {
-            IPadTextBox.Text = HardwareInfo.GetProcessorId();
+            ManuTextBox.Text = HardwareInfo.GetManufacturer();
+            ModelTextBox.Text = HardwareInfo.GetModel();
+            TypeTextBox.Text = HardwareInfo.GetSystemType();
+
+            string q1 = Environment.MachineName;
+            SystemTextBox.Text = q1;
         }
     }
 }

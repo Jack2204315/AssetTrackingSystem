@@ -25,7 +25,7 @@ namespace AssetTrackingSystem
             if (result == DialogResult.OK)
             {
                 // login was successful
-                Application.Run(new deletebtn());
+                Application.Run(new Direction());
             }
         }
 
