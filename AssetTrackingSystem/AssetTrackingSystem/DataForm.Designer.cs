@@ -206,6 +206,11 @@ namespace AssetTrackingSystem
             this.retrievebtn.Size = new System.Drawing.Size(246, 28);
             this.retrievebtn.TabIndex = 18;
             this.retrievebtn.Text = "Retrieve hardware data";
+            this.retrievebtn.Location = new System.Drawing.Point(85, 72);
+            this.retrievebtn.Name = "retrievebtn";
+            this.retrievebtn.Size = new System.Drawing.Size(246, 28);
+            this.retrievebtn.TabIndex = 18;
+            this.retrievebtn.Text = "Retrieve data";
             this.retrievebtn.UseVisualStyleBackColor = true;
             this.retrievebtn.Click += new System.EventHandler(this.retrievebtn_Click);
             // 
