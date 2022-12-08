@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
-
+using static AssetTrackingSystem.Connection;
 
 namespace AssetTrackingSystem
 {
@@ -39,7 +39,7 @@ namespace AssetTrackingSystem
             {
                 //This is the reference to help establish a connection to MySQL database: https://www.c-sharpcorner.com/UploadFile/9582c9/insert-update-delete-display-data-in-mysql-using-C-Sharp/
                 //This is my connection string to mySQL database.
-                string Connection = "datasource=lochnagar.abertay.ac.uk;database=sql2204315;username=sql2204315;password=45Hysx3CEDI4";
+                string Connection = Utils.ConnectionString;
                 //inserting data into coresponding data fields within mySQL database.
                 string Query = "insert into hardware(SystemName,Model,Manufacturer,Type,IPaddress,ExtraData) values('" + this.SystemTextBox.Text + "','" + this.ModelTextBox.Text + "','" + this.ManuTextBox.Text + "','" + this.TypeTextBox.Text + "','" + this.IPadTextBox.Text + "','" + this.ExtraDataTextBox.Text + "');";
                 MySqlConnection Conn = new MySqlConnection(Connection);
@@ -66,7 +66,7 @@ namespace AssetTrackingSystem
             {
                 //This is the reference to help view data through dataGridView_hardware: https://www.w3schools.com/sql/default.asp
                 //This is my connection string to mySQL database.
-                string Connection = "datasource=lochnagar.abertay.ac.uk;database=sql2204315;username=sql2204315;password=45Hysx3CEDI4";
+                string Connection = Utils.ConnectionString;
                 //populate dataGridView_hardware
                 string Query = "select * from hardware;";
                 MySqlConnection Conn = new MySqlConnection(Connection);
@@ -95,7 +95,7 @@ namespace AssetTrackingSystem
             {
                 //This is the reference to help establish a connection to MySQL database: https://www.c-sharpcorner.com/UploadFile/9582c9/insert-update-delete-display-data-in-mysql-using-C-Sharp/
                 //This is my connection string to mySQL database.
-                string Connection = "datasource=lochnagar.abertay.ac.uk;database=sql2204315;username=sql2204315;password=45Hysx3CEDI4";
+                string Connection = Utils.ConnectionString;
                 //inserting data into coresponding data fields within mySQL database.
                 string Query = "update hardware set SystemName='" + this.SystemTextBox.Text + "',Model='" + this.ModelTextBox.Text + "',Manufacturer='" + this.ManuTextBox.Text + "',Type='" + this.TypeTextBox.Text + "',IPaddress='" + this.IPadTextBox.Text + "',ExtraData='" + this.ExtraDataTextBox.Text + "';";
                 MySqlConnection Conn = new MySqlConnection(Connection);;
@@ -133,7 +133,7 @@ namespace AssetTrackingSystem
         {
             try
             {
-                string Connection = "datasource=lochnagar.abertay.ac.uk;database=sql2204315;username=sql2204315;password=45Hysx3CEDI4";
+                string Connection = Utils.ConnectionString;
                 string Query = "delete from hardware where SystemName='" + this.SystemTextBox.Text + "';";
                 MySqlConnection Conn = new MySqlConnection(Connection); ;
                 MySqlCommand Command = new MySqlCommand(Query, Conn);

@@ -25,22 +25,6 @@ namespace AssetTrackingSystem
 
         }
 
-        //public static String GetOSName()
-        //{
-
-        //    ManagementClass mc = new ManagementClass("win32_OperatingSystem");
-        //    ManagementObjectCollection moc = mc.GetInstances();
-        //    String Id = String.Empty;
-        //    foreach (ManagementObject mo in moc)
-        //    {
-
-        //        Id = mo.Properties["OSName"].Value.ToString();
-        //        break;
-        //    }
-        //    return Id;
-
-        //}
-
         public static String GetManufacturer()
         {
 

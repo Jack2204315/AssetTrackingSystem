@@ -32,6 +32,7 @@ namespace AssetTrackingSystem
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -46,7 +47,7 @@ namespace AssetTrackingSystem
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(165, 180);
+            this.button2.Location = new System.Drawing.Point(165, 156);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(177, 58);
             this.button2.TabIndex = 1;
@@ -63,11 +64,21 @@ namespace AssetTrackingSystem
             this.label1.TabIndex = 2;
             this.label1.Text = "Click which form you want to go to.";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(165, 220);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(177, 58);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Link Table Form";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // Direction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(512, 329);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -83,5 +94,6 @@ namespace AssetTrackingSystem
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button3;
     }
 }
