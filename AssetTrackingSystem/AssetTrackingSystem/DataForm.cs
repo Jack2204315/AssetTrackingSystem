@@ -18,6 +18,7 @@ namespace AssetTrackingSystem
 {
     public partial class deletebtn : Form
     {
+        int id = 0;
         public deletebtn()
         {
             InitializeComponent();
@@ -91,64 +92,71 @@ namespace AssetTrackingSystem
 
         private void editbtn_Click(object sender, EventArgs e)
         {
-            try
+            if (SystemTextBox.Text != "")
             {
                 //This is the reference to help establish a connection to MySQL database: https://www.c-sharpcorner.com/UploadFile/9582c9/insert-update-delete-display-data-in-mysql-using-C-Sharp/
                 //This is my connection string to mySQL database.
                 string Connection = Utils.ConnectionString;
                 //inserting data into coresponding data fields within mySQL database.
-                string Query = "update hardware set SystemName='" + this.SystemTextBox.Text + "',Model='" + this.ModelTextBox.Text + "',Manufacturer='" + this.ManuTextBox.Text + "',Type='" + this.TypeTextBox.Text + "',IPaddress='" + this.IPadTextBox.Text + "',ExtraData='" + this.ExtraDataTextBox.Text + "';";
-                MySqlConnection Conn = new MySqlConnection(Connection);;
-                MySqlCommand Command = new MySqlCommand(Query, Conn);
-                MySqlDataReader Reader;
+                //string Query = "update software set SystemName='" + this.SystemBox.Text + "',Version='" + this.versionbox.Text + "',Manufacturer='" + this.manubox.Text + "',ExtraData='" + this.extrabox.Text + "';";
+                MySqlConnection Conn = new MySqlConnection(Connection);
+                MySqlCommand Command = new MySqlCommand("UPDATE hardware SET SystemName=@SystemName, Model=@Model, Manufacturer=@Manufacturer, Type=@Type, IPaddress=@IPaddress where id=@id", Conn);
+                //MySqlCommand Command = new MySqlCommand(Query, Conn);
+                //MySqlDataReader Reader;
                 Conn.Open();
-                Reader = Command.ExecuteReader();
+                Command.Parameters.AddWithValue("@id", id);
+                Command.Parameters.AddWithValue("@SystemName", SystemTextBox.Text);
+                Command.Parameters.AddWithValue("@Model", ModelTextBox.Text);
+                Command.Parameters.AddWithValue("@Manufacturer", ManuTextBox.Text);
+                Command.Parameters.AddWithValue("@Type", TypeTextBox.Text);
+                Command.Parameters.AddWithValue("@IPaddress", IPadTextBox.Text);
+                Command.ExecuteNonQuery();
+                //Reader = Command.ExecuteReader();
                 MessageBox.Show("Data Updated");
-                while (Reader.Read())
-                {
-                }
+                //while (Reader.Read())
                 Conn.Close();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Please select data to update");
             }
         }
 
         private void dataGridView_hardware_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
             {
-                DataGridViewRow IndexRow = this.dataGridView_hardware.Rows[e.RowIndex];
-                SystemTextBox.Text = IndexRow.Cells[0].Value.ToString();
-                ModelTextBox.Text = IndexRow.Cells[1].Value.ToString();
-                ManuTextBox.Text = IndexRow.Cells[2].Value.ToString();
-                TypeTextBox.Text = IndexRow.Cells[3].Value.ToString();
-                IPadTextBox.Text = IndexRow.Cells[4].Value.ToString();
-                ExtraDataTextBox.Text = IndexRow.Cells[5].Value.ToString();
+                int RowIndex = dataGridView_hardware.SelectedCells[0].RowIndex;
+
+                //DataGridViewRow IndexRow = this.dataGridView1.Rows[e.RowIndex];
+                id = Convert.ToInt32(dataGridView_hardware.Rows[RowIndex].Cells[0].Value.ToString());
+                SystemTextBox.Text = dataGridView_hardware.Rows[RowIndex].Cells[1].Value.ToString();
+                ModelTextBox.Text = dataGridView_hardware.Rows[RowIndex].Cells[2].Value.ToString();
+                ManuTextBox.Text = dataGridView_hardware.Rows[RowIndex].Cells[3].Value.ToString();
+                TypeTextBox.Text = dataGridView_hardware.Rows[RowIndex].Cells[4].Value.ToString();
+                IPadTextBox.Text = dataGridView_hardware.Rows[RowIndex].Cells[5].Value.ToString();
+                ExtraDataTextBox.Text = dataGridView_hardware.Rows[RowIndex].Cells[6].Value.ToString();
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
+            if (id != 0)
             {
                 string Connection = Utils.ConnectionString;
-                string Query = "delete from hardware where SystemName='" + this.SystemTextBox.Text + "';";
+                // Query = "delete from software where id=@id";
                 MySqlConnection Conn = new MySqlConnection(Connection); ;
-                MySqlCommand Command = new MySqlCommand(Query, Conn);
-                MySqlDataReader Reader;
+                MySqlCommand Command = new MySqlCommand("delete from hardware where id = @id", Conn);
+                //MySqlDataReader Reader;
                 Conn.Open();
-                Reader = Command.ExecuteReader();
-                MessageBox.Show("Data Deleted");
-                while (Reader.Read())
-                {
-                }
+                Command.Parameters.AddWithValue("@id", id);
+                Command.ExecuteNonQuery();
                 Conn.Close();
+                MessageBox.Show("Data deleted");
+                //while (Reader.Read())
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Please select data to delete");
             }
         }
 

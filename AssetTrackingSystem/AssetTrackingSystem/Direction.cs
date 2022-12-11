@@ -31,5 +31,12 @@ namespace AssetTrackingSystem
             sf.Show();
             Visible = false;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LinkTablesForm ltf = new LinkTablesForm();
+            ltf.Show();
+            Visible = false;
+        }
     }
 }
