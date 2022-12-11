@@ -16,7 +16,18 @@ namespace AssetTrackingSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new LoginForm());
+
+            DialogResult result;
+            using (var loginForm = new LoginForm())
+                result = loginForm.ShowDialog();
+            
+            if (result == DialogResult.OK)
+            {
+                // login was successful
+                Application.Run(new Direction());
+            }
         }
+
     }
 }
