@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static AssetTrackingSystem.Connection;
 
 namespace AssetTrackingSystem
 {
@@ -27,11 +28,12 @@ namespace AssetTrackingSystem
 
         private void loginbtn_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn = new MySqlConnection("datasource = lochnagar.abertay.ac.uk; database = sql2204315; username = sql2204315; password = 45Hysx3CEDI4");
-            MySqlCommand cmd = new MySqlCommand("SELECT passwordhash FROM userlogin WHERE username = @username", conn);
+            string Connection = Utils.ConnectionString;
+            MySqlConnection Conn = new MySqlConnection(Connection);
+            MySqlCommand cmd = new MySqlCommand("SELECT passwordhash FROM userlogin WHERE username = @username", Conn);
             cmd.Parameters.AddWithValue("@username", UsertextBox.Text);
 
-                conn.Open();
+                Conn.Open();
 
                 MySqlDataReader dataReader = cmd.ExecuteReader();
                 if (dataReader.HasRows)
